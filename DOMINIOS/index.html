@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>DOMINIOS</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>DOMINIOS</i></li>
+    <li><b>Componentes del grupo:</b> <i>Abel García García</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>28 de Mayo de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>Configurar clientes</a> | <a href='#bloque2'>Unirse al dominio</a> | <a href='#final'>Comprobación</a>
+</div>
+<h1><a id='bloque1'>Configurar clientes</a></h1>
+<p><ul><li><b>Interfaz de RED</b>: Recordar que las máquinas (Servidor y cliente) deben tener la configuración de red estática.</li>
+<li><b>Servidores DNS</b>: Los clientes, para unirse al PDC, deben tener como DNS1=ip-del-pdc, y DNS2=ip-de-fry. 
+Para configurar los DNS en una máquina Ubuntu, podemos hacer uso del propio fichero de configuración de red (/etc/network/interfaces)</li>
+<img src='./files/DOMINIOS/1.png'/>
+<li>Para configurar los servidores DNS, tenemos otra forma. Que es editar el archivo /etc/resolv.conf</li>
+<img src='./files/DOMINIOS/2.0.png'/>
+<li><b>Comprobar configuración DNS</b>: Para comprobar si la resolución de nombres está funcionando correctamente hacemos las siguientes pruebas</li>
+<img src='./files/DOMINIOS/2.1.png'/><br/><img src='./files/DOMINIOS/2.2.png'/></ul></p>
+<h1><a id='bloque2'>Unirse al dominio</a></h1>
+<p><ul><li>Vamos a unir el cliente Ubuntu al PDC Windows Server usando una aplicación de entorno gráfico, llamada Likewise.</li>
+<li>Para instalar Likewise en Ubuntu instalamos los paquetes: likewise-open y likewise-open-gui</li><img src='./files/DOMINIOS/2.png'/>
+<li>Para ejecutar el programa, abrimos un terminal y ponemos: domainjoin-gui</li><img src='./files/DOMINIOS/3.0.png'/>
+<li>Completamos la siguiente información de configuración:
+<ul><li>Computer name: nombre de nuestra máquina (Aparece por defecto)</li>
+<li>Domain: el dominio de nuestro PDC.</li></ul></li>
+<li>Luego nos pedirá usuario y contraseña. Aquí ponemos el nombre de nuestro usuario administrador del PDC, y su contraseña.
+<ul><li>Cuidado revisar bien al escribir el nombre de usuario. No es lo mismo <b>"Administrator"</b> que<b> "Administrador".</b></li> 
+<li>El administrador del domino en Windows suele llamarse "Administrador", y en GNU/Linux es "root"</li></ul></li>
+<li>Luego saldrá una pantalla indicando si el proceso ha sido correcto, y se pide reiniciar</li><img src='./files/DOMINIOS/3.png'/></ul></p>
+<h1><a id='final'>Comprobación</a></h1>
+<p><ul><li>Desde el cliente, entramos al sistema con algún usuario del dominio</li><img src='./files/DOMINIOS/4.png'/></ul></p>
+</body>
+</html>
