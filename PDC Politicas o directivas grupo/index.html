@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>PDC Politicas o directivas grupo</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>PDC Politicas o directivas grupo</i></li>
+    <li><b>Componentes del grupo:</b> <i>Abel Garcia</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>12 de Mayo de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>Objetivo</a> | <a href='#bloque2'>Administrar las políticas de grupo</a> | <a href='#final'>Ejemplos de directivas</a>
+</div>
+<h1><a id='bloque1'>Objetivo</a></h1>
+<p>Establecer unas directivas para la OU "jedi", y otras diferentes para la OU "sith"
+<img src='./files/PDC Politicas o directivas grupo/0.png'/></p>
+<h1><a id='bloque2'>Administrar las políticas de grupo</a></h1>
+<p>
+    <ul><li>En Administración de directivas de grupo, en el árbol de consola, desplegar Objetos de Directiva de grupo. Click con el botón derecho del ratón en el GPO y seleccionar Editar.</li>
+    <img src='./files/PDC Politicas o directivas grupo/0.1.png'/>
+    <li>En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.</li>
+    <img src='./files/PDC Politicas o directivas grupo/1.png'/></ul>
+</p>
+<h1><a id='final'>Ejemplos de directivas</a></h1>
+<p><h5>Quitar el menú Ejecutar del menú Inicio</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)</li>
+    <li>Configuración de Directiva de grupo: Quitar el menú Ejecutar del menú Inicio (Remove Run menu from Start Menu)</li>
+    <li>Opción: Habilitada</li></ul>
+<img src='./files/PDC Politicas o directivas grupo/2.png'/>
+<h5>Prohibir el acceso al Panel de control</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)</li>
+    <li>Configuración de Directiva de grupo: Prohibir el acceso al Panel de control (Prohibit access to the Control Panel)</li>
+    <li>Opción: Habilitada</li></ul>
+<img src='./files/PDC Politicas o directivas grupo/3.png'/>
+<h5>Ocultar el icono Mis sitios de red del escritorio</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Desktop)</li>
+    <li>Configuración de Directiva de grupo: Ocultar el icono Mis sitios de red del escritorio (Hide My Network Places icon on desktop)</li>
+    <li>Opción: Habilitada</li></ul>
+<img src='./files/PDC Politicas o directivas grupo/4.png'/>
+<h5>Quitar el icono Mis sitios de red del menú inicio</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)</li>
+    <li>Configuración de Directiva de grupo: Quitar el icono Mis sitios de red del men ú Inicio (Remove My Network Places icon from Start Menu)</li>
+    <li>Opción: Habilitada</li></ul>
+<h4>Esta directiva no la encontre porque alomejor tienen el nombre es distinto</h4>
+<h5>Quitar Conexiones de red del menú Inicio</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administra tive Templates / Start Menu and Taskbar)</li>
+    <li>Configuración de Directiva de grupo: Quitar Conexiones de red del menú Inicio (Remove Network Connections from the Start Menu)</li>
+    <li>Opción: Habilitada</li></ul>
+<img src='./files/PDC Politicas o directivas grupo/6.png'/>
+<h5>Ocultar unidades específicas en Mi PC</h5>
+
+    <ul><li>Ubicación: Configurac ión de usuario / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)</li>
+    <li>Configuración de Directiva de grupo: Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer)</li>.
+    <li>Opción: Habilitada. Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).</li></ul>
+<img src='./files/PDC Politicas o directivas grupo/7.png'/>
+<h5>Habilitar Quitar “Conectar a unidad de red” y “Desconectar de unidad de red”</h5>
+
+    <ul><li>Ubicación: Configuración de usuario / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)</li>
+    <li>Configuración de Directiva de grupo: Quitar “Conectar a unidad de red” y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).</li>
+    <li>Opción: Habilitada</li></ul>
+    <img src='./files/PDC Politicas o directivas grupo/8.png'/>
+</p>
+</body>
+</html>
