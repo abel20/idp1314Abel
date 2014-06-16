@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Registro de eventos local</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Registro de eventos local</i></li>
+    <li><b>Componentes del grupo:</b> <i>Abel García García</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>12 de Junio de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>Registro en Windows</a> | <a href='#bloque2'>Registro en GNU/Linux (GUI)</a> | <a href='#bloque3'>Registro en GNU/Linux (Comandos)</a> | <a href='#final'>Configuración de Logrotate</a>
+</div>
+<h1><a id='bloque1'>Registro en Windows</a></h1>
+<p>Activamos unas directivas de seguridad, para auditar los inicios de sesión al sistema (Correctos e incorrectos)
+<img src='./files/registro/1.png'/><br/>Buscar en el sistema, la herramienta visor de sucesos. Comprobar cómo se registran los eventos anteriores
+<img src='./files/registro/2.png'/>
+<br/><a href='./registro-windows.csv'>registro</a></p>
+<h1><a id='bloque2'>Registro en GNU/Linux (GUI)</a></h1>
+<p><ul><li>Instalar el programa Webmin.<ul><li>Descargar el paquete deb de la web de Webmin</li><li>Para instalarlo usamo dpkg:"dpkg -i webmin_1.690_all.deb"</li>
+<img src='./files/registro/4.png'/>
+<img src='./files/registro/3.png'/></ul></li><li>Para iniciar el servicio Webmin, ejecutamos: "/etc/init.d/webmin start"</li>
+<li>Para acceder al programa Webmin, abrimos un navegador web y ponemos como URL: "https://garcia:10000"</li>
+<li>Vamos a analizar los ficheros de log con la herramienta anterior. Para ello vamos a las opciones del menú "System -> System Log".</li>
+<img src='./files/registro/5.png'/></ul></p>
+<h1><a id='bloque3'>Registro en GNU/Linux (Comandos)</a></h1>
+<p><ul type="circle"><li>Configuración de Syslog<ul type="disc"><li>Consultar el fichero /etc/rsyslog.conf</li><li>Añadir la siguiente línea al fichero de configuracion /etc/rsyslog.d/50-default.conf:<ul><li>local0.* /var/log/nombredelalumno/prueba-local.log</li>
+<img src='./files/registro/6.png'/></ul></li>
+<li>Con el usuario root, crear el fichero /var/log/abel/prueba-local.log vacío</li><img src='./files/registro/7.png'/>
+<li>Ahora debemos reiniciar el servicio rsyslog, para que se recargue la nueva configuración.
+<ul><li>/etc/init.d/rsyslog stop</li><li>/etc/init.d/rsyslog start</li><img src='./files/registro/8.png'/></ul></li></ul></li>
+<li>Comprobar Rsyslog<ul type="disc"><li>cat /var/log/nombredelalumno/prueba-local.log: Esto nos muestra que el fichero de log está vació por el momento</li>
+<img src='./files/registro/9.png'/>
+<li>Crear varios registros mediante el comando logger, usando varias prioridades diferentes y otros valores. Por ejemplo, probar los parámetros de logger -i, -t, etc.</li>
+<li>Consultar los mensajes registrados, e indicar sobre un ejemplo el significado de cada campo de una línea concreta del log</li>
+<img src='./files/registro/10.png'/></ul></li></ul></p>
+<h1><a id='final'>Configuración de Logrotate</a></h1>
+<p><ul><li>Fichero de configuración principal es /etc/logrotate.conf. Además existen ficheros de configuración auxiliares en /etc/logrotate.d.</li>
+<li>Ahora vamos a configurar logrotate para generar rotaciones de nuestro fichero de log. Para ello crearemos el fichero /etc/logrotate.d/abel y ponemos:</li>
+<img src='./files/registro/11.png'/>
+<li>Vamos a generar muchos mensajes de log en el fichero de registro de eventos:<ul><li>Podemos invocando el comando siguiente para aumentar el tamaño del registro de log con la información contenida en un fichero de texto: logger -p local0.notice -t ETC-MOTD -f /etc/motd</li>
+
+</ul></li><li>Comprobar que el fichero de log ha crecido de tamaño</li><img src='./files/registro/12.png'/>
+<li>Para que se dispare la rotación de log (logrotate) automáticamente podemos reiniciar el equipo. Sin reiniciar el equipo, podemos ejecutar manualmente el programa de rotación logrotate de la siguiente forma: /usr/sbin/logrotate -f /etc/logrotate.conf</li>
+<li>Comprobar que el fichero cambia de tamaño, y que efectivamente se ha producido la rotación de los ficheros de log.</li>
+<img src='./files/registro/13.png'/></ul></p>
+</body>
+</html>
